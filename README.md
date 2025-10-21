@@ -1,61 +1,76 @@
-# Guten OCR
+# OCR React App
 
-> [Demo](https://gutenye-ocr.netlify.app/) | [Roadmap](https://github.com/users/gutenye/projects/5/views/4)
+> [Demo](https://gutenye-ocr.netlify.app/) | Based on [Guten OCR](https://github.com/gutenye/ocr)
 
-**an OCR Javascript library runs on Node.js, Browser, React Native and C++** 
+**A React-based OCR (Optical Character Recognition) application** 
 
-Based on [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) and [ONNX Runtime](https://github.com/microsoft/onnxruntime), supports PP-OCRv4 model
+Powered by [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) and [ONNX Runtime](https://github.com/microsoft/onnxruntime), supports PP-OCRv4 model
+
+## Features
+
+✨ **React-based UI** - Modern, responsive web interface  
+🚀 **Fast & Accurate** - Powered by PaddleOCR v4 model  
+🌐 **Browser-native** - Runs entirely in the browser using ONNX Runtime Web  
+📱 **Responsive Design** - Works on desktop and mobile devices  
 
 ## Getting Started
 
-### Node
+### Prerequisites
 
-> [Example](./packages/node/example/README.md)
+- [Bun](https://bun.sh/) (recommended) or Node.js 18+
+- Modern web browser with WebAssembly support
 
-```ts
-bun add @gutenye/ocr-node
-import Ocr from '@gutenye/ocr-node'
-const ocr = await Ocr.create()
-const result = await ocr.detect('a.jpg')
+### Installation
+
+```bash
+# Install dependencies
+bun install
+
+# Build the application
+bun run build
+
+# Start the development server
+bun run dev
 ```
 
-### Browser
+The app will be available at `http://localhost:3000`
 
-> [Example](./packages/browser/example/README.md)
+### Usage
 
-```ts
-bun add @gutenye/ocr-browser
-import Ocr from '@gutenye/ocr-browser'
-const ocr = await Ocr.create({
-  models: {
-    detectionPath: '/assets/ch_PP-OCRv4_det_infer.onnx',
-    recognitionPath: '/assets/ch_PP-OCRv4_rec_infer.onnx',
-    dictionaryPath: '/assets/ppocr_keys_v1.txt'
-  }
-})
-const result = await ocr.detect('/a.jpg')
+1. Open the application in your browser
+2. Click "Choose an image" to upload an image file
+3. Wait for the OCR processing to complete
+4. View the detected text results
+
+## Project Structure
+
+```
+.
+├── src/                  # React application source
+│   ├── App.tsx          # Main React component
+│   ├── App.css          # Styles
+│   ├── index.tsx        # React entry point
+│   └── lib/             # OCR library code
+├── public/              # Static assets
+│   ├── index.html       # HTML template
+│   └── assets/          # OCR model files
+├── dist/                # Built output (generated)
+├── packages/            # Optional packages
+│   └── react-native/    # React Native implementation
+├── build.ts             # Build script
+└── package.json         # Dependencies and scripts
 ```
 
-### React Native
+## Available Scripts
 
-> [Example](./packages/react-native/example/README.md)
+- `bun run build` - Build the application for production
+- `bun run dev` - Build and start development server
+- `bun run serve` - Serve the built application
 
-```ts
-bun add @gutenye/ocr-react-native
-import Ocr from '@gutenye/ocr-react-native'
-const ocr = await Ocr.create()
-const result = await ocr.detect('a.jpg')
-```
+## React Native
 
-### C++
-
-> [Example](./packages/react-native/cpp/example/README.md)
-
-```cpp
-#include "native-ocr.h"
-NativeOcr* ocr = new NativeOcr(..)
-auto result = ocr->detect("a.jpg");
-```
+For mobile React Native implementation, see:
+> [React Native Package](./packages/react-native/README.md)
 
 ### API Reference
 

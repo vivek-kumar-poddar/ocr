@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "#common/*": ["./packages/common/src/*"]
+      "#common/*": ["./src/lib/*"]
     },
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
