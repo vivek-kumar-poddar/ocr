@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Ocr from './lib/Ocr'
+import Ocr from './lib'
 import './App.css'
 
 function App() {
